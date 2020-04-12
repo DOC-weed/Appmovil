@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService } from '../service/service.service';
+import { ServiceService } from '../../service/service.service';
 import { AlertController, NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
-import { user } from '../models/user';
+import { user } from '../../models/user';
 
 @Component({
   selector: 'app-registrar',
@@ -18,25 +18,29 @@ passito: string;
   }
   registrar(myForm: NgForm) {
     //funcion del servicio
-    console.log(this.User);
-    this.volverLogin();
-    myForm.reset();
-
-    
-
-
   }
+
+  // Alertas
   async volverLogin() {
-    let alert = await this.alert.create({
-      message: "Has sido registrado correctamente",
+    const alert = await this.alert.create({
+      message: 'Has sido registrado correctamente',
       buttons: [
-        {text:"OK",
-      handler: () =>{
+        {text:'OK',
+         handler: () =>{
         this.nav.navigateForward('/login');
-      }}
-      ]
+            }}
+              ]
+          });
+    return await alert.present();
+  }
+  async error(err) {
+    const alert = await this.alert.create({
+      message:'Ocurrio un error' + err,
+      buttons: [{
+        text:'ok'
+      }]
     });
-    alert.present();
+    return await alert.present();
   }
 
 }

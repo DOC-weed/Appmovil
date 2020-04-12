@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: '',
@@ -19,7 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'registrar',
-    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
+    loadChildren: () => import('./Pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
+  },
+  {
+    path: 'homework',
+    loadChildren: () => import('./Pages/homework/homework.module').then( m => m.HomeworkPageModule)
   }
 ];
 @NgModule({
