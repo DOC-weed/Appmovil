@@ -22,8 +22,8 @@ const routes: Routes = [
     loadChildren: () => import('./Pages/registrar/registrar.module').then( m => m.RegistrarPageModule)
   },
   {
-    path: 'homework',
-    loadChildren: () => import('./Pages/homework/homework.module').then( m => m.HomeworkPageModule)
+    path: 'perfil',
+    loadChildren: () => import('./Pages/perfil/homework.module').then( m => m.HomeworkPageModule)
   }
 ];
 @NgModule({

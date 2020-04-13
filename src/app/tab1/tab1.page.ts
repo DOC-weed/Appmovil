@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { ServiceService } from '../service/service.service';
 import { ModalController, AlertController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
-import { HomeworkPage } from '../Pages/homework/homework.page';
+import { HomeworkPage } from '../Pages/perfil/homework.page';
 import { TareasComponent } from '../Components/tareas/tareas.component';
 
 

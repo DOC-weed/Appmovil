@@ -1,4 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu-h',
@@ -7,9 +8,18 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class MenuHComponent implements OnInit {
 
-  @Output() titulo;
-  constructor() { }
+  
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {}
+  cerrarsesion() {
+    this.navCtrl.navigateForward('/login');
+    localStorage.clear();
+
+
+  }
+  gotoperfil() {
+    this.navCtrl.navigateForward('/perfil');
+  }
 
 }
