@@ -13,8 +13,9 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentModule } from './Components/component.module';
-
-
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 @NgModule({
   declarations: [AppComponent, TareasComponent],
   entryComponents: [TareasComponent],
@@ -22,6 +23,9 @@ import { ComponentModule } from './Components/component.module';
   providers: [
     StatusBar,
     SplashScreen,
+    FilePath,
+    Camera,
+    NativeStorage,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

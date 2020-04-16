@@ -1,3 +1,4 @@
+// Importaciones que se necesitan para este modulo
 import { homework } from './../../models/homework';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -10,11 +11,13 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./tareas.component.scss'],
 })
 export class TareasComponent implements OnInit {
+  // Variables utilizadas para este modulo========================
   homework = new homework();
-
+  // =============================================================
   constructor(private service: ServiceService, public modalCtrl: ModalController) { }
 
   ngOnInit() {}
+  // Función de registrar un tarea nueva 
   registarTarea(myform: NgForm) {
     console.log(this.homework);
     this.closeModal();

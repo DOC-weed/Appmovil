@@ -10,28 +10,28 @@
     <div>
         <form #myForm="ngForm" (ngSubmit)="registarTarea(myForm)">
             <ion-item>
-                <ion-label>Nombre de la tarea</ion-label>
+                <ion-label position="floating">Nombre de la tarea</ion-label>
                 <ion-input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="homework.nombreTarea" required></ion-input>
-                <div *ngIf="nombre.invalid&&nombre.touched">
-                    <ion-text>Agregue un nombre</ion-text>
-                </div>
             </ion-item>
+            <div *ngIf="nombre.invalid&&nombre.touched">
+                <ion-text>Agregue un nombre</ion-text>
+            </div>
             <ion-item>
-                <ion-label>Descripción</ion-label>
+                <ion-label position="floating">Descripción</ion-label>
                 <ion-textarea name="des" #des="ngModel" [(ngModel)]="homework.descricionTarea" required></ion-textarea>
-                <div *ngIf="des.invalid&&des.touched">
-                    <ion-text>Agregue una descripción</ion-text>
-                </div>
             </ion-item>
+            <div *ngIf="des.invalid&&des.touched">
+                <ion-text>Agregue una descripción</ion-text>
+            </div>
             <ion-item>
-                <ion-label>Archivo *opcional*</ion-label>
+                <ion-label position="floating">Archivo *opcional*</ion-label>
                 <ion-input name="file" #file="ngModel" [(ngModel)]="homework.file" type="file"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-button type="submit" [disabled]="!myForm.valid" shape="round">
+                <ion-button type="submit" [disabled]="!myForm.valid" shape="round" expand="full">
                     Registar tarea
                 </ion-button>
-                <ion-button (click)="closeModal()" shape="round">
+                <ion-button (click)="closeModal()" color="danger" shape="round" expand="full">
                     Cancelar
                 </ion-button>
             </ion-item>

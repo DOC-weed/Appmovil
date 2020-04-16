@@ -15,14 +15,18 @@
             <ion-buttons slot="start">
                 <ion-menu-button></ion-menu-button>
             </ion-buttons>
-            <ion-title>Tab 1</ion-title>
+            <ion-title>Panel de control</ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <ion-item>
+        <ion-item color="secondary">
             <ion-label>Crea un curso</ion-label>
-            <ion-button (click)="mostrarform()">
-                <ion-icon slot="icon-only" name="add"></ion-icon>
+            <ion-button (click)="mostrarform()" *ngIf="blnmostarcurso==false">
+                <ion-icon slot="icon-only" name="add-circle"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="ocultarform()" *ngIf="blnmostarcurso==true">
+                <ion-icon slot="icon-only" name="close-circle">
+                </ion-icon>
             </ion-button>
         </ion-item>
         <div *ngIf="blnmostarcurso==true">
@@ -30,24 +34,24 @@
                 <ion-item>
                     <ion-label position="floating">Nombre del curso</ion-label>
                     <ion-input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="course.nameCourse" required></ion-input>
-                    <div *ngIf="nombre.invalid&&nombre.touched">
-                        <ion-text color="danger">Ingrese un nombre</ion-text>
-                    </div>
                 </ion-item>
+                <div *ngIf="nombre.invalid&&nombre.touched">
+                    <ion-text color="danger">Ingrese un nombre</ion-text>
+                </div>
                 <ion-item>
                     <ion-label position="floating">Tema del curso</ion-label>
                     <ion-input type="text" name="tema" #tema="ngModel" [(ngModel)]="course.topicCourse" required></ion-input>
-                    <div *ngIf="tema.invalid&&tema.touched">
-                        <ion-text color="danger">Ingrese un tema</ion-text>
-                    </div>
                 </ion-item>
+                <div *ngIf="tema.invalid&&tema.touched">
+                    <ion-text color="danger">Ingrese un tema</ion-text>
+                </div>
                 <ion-item>
                     <ion-label position="floating">Descirpción del curso</ion-label>
                     <ion-textarea name="des" #des="ngModel" [(ngModel)]="course.descriptionCourse" required></ion-textarea>
-                    <div *ngIf="des.invalid&&des.touched">
-                        <ion-text color="danger">Ingrese una descrtpción</ion-text>
-                    </div>
                 </ion-item>
+                <div *ngIf="des.invalid&&des.touched">
+                    <ion-text color="danger">Ingrese una descrtpción</ion-text>
+                </div>
                 <div>
                     <ion-list>
                         <ion-item>
@@ -60,7 +64,6 @@
                                 <ion-select-option value="Viernes">Viernes</ion-select-option>
                             </ion-select>
                         </ion-item>
-
                     </ion-list>
                     <div *ngIf="days.invalid&&days.touched">
                         <ion-text color="danger">Ingrese los dias del curso</ion-text>
@@ -69,31 +72,31 @@
                 <ion-item>
                     <ion-label>Fecha del curso</ion-label>
                     <ion-datetime name="date" #date="ngModel" [(ngModel)]="course.date" required></ion-datetime>
-                    <div *ngIf="date.invalid&&date.touched">
-                        <ion-text color="danger">Ingrese una fecha</ion-text>
-                    </div>
                 </ion-item>
+                <div *ngIf="date.invalid&&date.touched">
+                    <ion-text color="danger">Ingrese una fecha</ion-text>
+                </div>
                 <ion-item>
                     <ion-label>Hora del curso</ion-label>
                     <ion-datetime display-format="h:mm A" picker-format="h:mm A" name="hour" #hour="ngModel" [(ngModel)]="course.hour" required></ion-datetime>
-                    <div *ngIf="hour.invalid&&hour.touched">
-                        <ion-text color="danger">Ingrese una hora</ion-text>
-                    </div>
                 </ion-item>
+                <div *ngIf="hour.invalid&&hour.touched">
+                    <ion-text color="danger">Ingrese una hora</ion-text>
+                </div>
                 <ion-item>
                     <ion-label position="floating">Lugar del curso</ion-label>
                     <ion-input type="text" name="place" #place="ngModel" [(ngModel)]="course.place" required></ion-input>
-                    <div *ngIf="place.invalid&&place.touched">
-                        <ion-text color="danger">Ingrese un lugar</ion-text>
-                    </div>
                 </ion-item>
+                <div *ngIf="place.invalid&&place.touched">
+                    <ion-text color="danger">Ingrese un lugar</ion-text>
+                </div>
                 <div>
-                    <ion-button type="submit" [disabled]="!myform.valid" expand="block" color="primary" shape="round">
+                    <ion-button type="submit" [disabled]="!myform.valid" expand="full" color="primary" shape="round">
                         Crear
                     </ion-button>
                 </div>
                 <div>
-                    <ion-button (click)="ocultarform()" expand="block" expand="" color="danger" shape="round">
+                    <ion-button (click)="ocultarform()" expand="full" color="danger" shape="round">
                         Cancelar
                     </ion-button>
                 </div>
@@ -101,7 +104,6 @@
         </div>
         <div>
             <h1>No tienes cursos, crea uno!</h1>
-
         </div>
         <div #show>
             <ion-list>
@@ -113,21 +115,17 @@
                         </ion-card-header>
                         <ion-card-content>
                             <div>
-                                <ion-label psotion="floating">Dejar un mensaje</ion-label>
+                                <ion-label>Dejar un mensaje</ion-label>
                                 <ion-textarea></ion-textarea>
-                                <ion-button></ion-button>
+                                <ion-button expand="full" shape="round">Enviar</ion-button>
                             </div>
                             <div>
-                                <ion-button (click)="dejarTarea()">Dejar una tarea</ion-button>
+                                <ion-button (click)="dejarTarea()" shape="round" expand="full">Dejar una tarea</ion-button>
                             </div>
-
                         </ion-card-content>
                     </ion-card>
                 </div>
             </ion-list>
         </div>
-
-
-
     </ion-content>
 </div>

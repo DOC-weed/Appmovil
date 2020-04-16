@@ -1,3 +1,4 @@
+// Importaciones que se necesitan para este modulo
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
 import { NgForm } from '@angular/forms';
@@ -15,9 +16,11 @@ import { TareasComponent } from '../Components/tareas/tareas.component';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+  //Variables utilizadas para este modulo========================
   course = new Course();
   blnmostarcurso = false;
   getCursos: Array<any>;
+  //=============================================================
   constructor(private service: ServiceService, public modalCtrl: ModalController, public alert: AlertController) {}
   
   ngOnInit() {
