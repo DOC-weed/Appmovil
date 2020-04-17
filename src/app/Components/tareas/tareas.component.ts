@@ -16,8 +16,21 @@ export class TareasComponent implements OnInit {
 
   ngOnInit() {}
   registarTarea(myform: NgForm) {
-    console.log(this.homework);
-    this.closeModal();
+
+    if (myform.value.fileName == null) {
+      myform.value.fileName="undefined"
+    }
+
+
+    this.service.postHomework(myform.value)
+    .subscribe(res =>{
+      console.log(res);
+      if (res) {
+        this.closeModal();
+      }
+    });
+
+
 
 
 

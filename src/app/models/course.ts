@@ -1,6 +1,6 @@
 export class Course {
-    idUser: string;
-    idUserRegister: Array<string>;
+    // idUser: string;
+    // idUserRegister: Array<string>;
     nameCourse: string;
     topicCourse: string;
     descriptionCourse: string;

@@ -12,12 +12,23 @@ import { user } from '../../models/user';
 export class RegistrarPage implements OnInit {
 User = new user();
 passito: string;
+
   constructor(private service: ServiceService, public alert: AlertController, public nav: NavController) { }
 
   ngOnInit() {
   }
+
+
+
   registrar(myForm: NgForm) {
-    //funcion del servicio
+    const roldef = "student";
+    const form = {name: myForm.value.nombre,lastname:myForm.value.apeliido,email:myForm.value.email,password:myForm.value.pass1,matricula:myForm.value.matri,rol:roldef}
+    console.log(form);
+    //console.log(myForm.value);
+    this.service.postUser(form)
+      .subscribe(res => {
+        console.log(res);
+      });
   }
 
   // Alertas

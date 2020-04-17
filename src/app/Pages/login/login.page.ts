@@ -19,12 +19,22 @@ user = new userlogin();
 
   ngOnInit() {
   }
-  
+
   iniciarSesion(myForm: NgForm ) {
     this.service.Login(this.user).then((usuario: any) => {
-      console.log(this.user);
-      localStorage.setItem('token', usuario.token);
-      this.nav.navigateForward('/tabs');
+      console.log(usuario);
+      if (usuario.status == "User not found") {
+        console.log('Usuario no encontrado');
+
+      }else if (usuario.status == "Incorrect password"){
+          console.log('contraseña incorrecta');
+
+      }else{
+        
+        localStorage.setItem('token', usuario.token);
+        this.nav.navigateForward('/tabs');
+
+      }
     }).catch((err: any) => {
       console.log(err);
       this.error(err);
@@ -33,7 +43,7 @@ user = new userlogin();
   gotregistrar() {
     this.nav.navigateForward('/registrar');
   }
-  //Alertas 
+  //Alertas
 
   async error(err) {
     const alert = await this.alert.create({

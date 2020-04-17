@@ -19,7 +19,7 @@ export class Tab1Page implements OnInit {
   blnmostarcurso = false;
   getCursos: Array<any>;
   constructor(private service: ServiceService, public modalCtrl: ModalController, public alert: AlertController) {}
-  
+
   ngOnInit() {
 
   }
@@ -33,12 +33,24 @@ export class Tab1Page implements OnInit {
   }
   // Crud
   obtenercursosId() {
-
+    //Aqui tienes que mandar id y remplazar el string por la variable de la función
+    const _id = "5e9902eba956254b0059e545"
+    this.service.GetCourseId(_id)
+    .subscribe(res =>{
+      console.log(res);
+    });
   }
   registarCurso(myform: NgForm) {
-    console.log(this.course);
 
+    const form = {nameCourse:myform.value.nombre,topicCourse:myform.value.tema,descriptionCourse:myform.value.des,days:myform.value.days,date:myform.value.date,hour:myform.value.hour,place:myform.value.place}
+    console.log(form);
+    this.service.postCourse(form)
+    .subscribe(res =>{
+      console.log(res);
+    });
   }
+
+
   // Alertas y Modal
   async dejarTarea() {
     const modal = await this.modalCtrl.create({
