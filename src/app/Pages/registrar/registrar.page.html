@@ -1,46 +1,83 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-            <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
-        <ion-title>Registrate</ion-title>
-    </ion-toolbar>
-</ion-header>
-<ion-content>
+
+<ion-content class="background ctnt-centrado">
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons class="btn-back" slot="start">
+                <ion-back-button defaultHref="/"></ion-back-button>
+            </ion-buttons>
+            <ion-title>Registrate</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+
     <form #myForm="ngForm" (ngSubmit)="registrar(myForm)">
         <div>
-            <ion-label>Nombres</ion-label>
-            <ion-input type="text" name="nombre" #n="ngModel" [(ngModel)]="User.name" required></ion-input>
-            <ion-text *ngIf="n.invalid&&n.touched" color="danger">Ingrese un nombre</ion-text>
+            <ion-chip>
+                <ion-input placeholder="Nombres" required=true clearInput="true" type="text" name="nombre" #n="ngModel" [(ngModel)]="User.name" required></ion-input>
+            </ion-chip>
+            <br>
+            <ion-chip class="err">
+                <ion-text *ngIf="n.invalid&&n.touched" color="danger">Ingrese sus nombres</ion-text>
+            </ion-chip>
         </div>
+
         <div>
-            <ion-label>Apellidos</ion-label>
-            <ion-input type="text" name="apeliido" #ape="ngModel" [(ngModel)]="User.lastname" required></ion-input>
-            <ion-text *ngIf="ape.invalid&&ape.touched" color="danger">Ingrese apellidos </ion-text>
+            <ion-chip>
+                <ion-input placeholder="Apellidos" required=true clearInput="true" type="text" name="apeliido" #ape="ngModel" [(ngModel)]="User.lastname" required></ion-input>
+            </ion-chip>
+            <br>
+            <ion-chip class="err">
+                <ion-text *ngIf="ape.invalid&&n.touched" color="danger">Ingrese sus apellidos</ion-text>
+            </ion-chip>
         </div>
+
         <div>
-            <ion-label>Matrícula</ion-label>
-            <ion-input type="number" name="matri" #matri="ngModel" [(ngModel)]="User.matricula" required></ion-input>
-            <ion-text *ngIf="matri.invalid&&matri.touched" color="danger">Ingrese una matrícula</ion-text>
+            <ion-chip>
+                <ion-input placeholder="Matrícula" required=true clearInput="true" type="number" name="matri" #matri="ngModel" [(ngModel)]="User.matricula" required></ion-input>
+            </ion-chip>
+            <br>
+            <ion-chip class="err">
+                <ion-text *ngIf="matri.invalid&&n.touched" color="danger">Ingrese su matrícula</ion-text>
+            </ion-chip>
         </div>
+
         <div>
-            <ion-label>Correo</ion-label>
-            <ion-input type="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" name="email" #email="ngModel" [(ngModel)]="User.email" required></ion-input>
-            <ion-text *ngIf="email.invalid&&email.touched" color="danger">Ingrese un correo valido</ion-text>
+            <ion-chip>
+                <ion-input placeholder="Correo" required=true clearInput="true" type="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" name="email" #email="ngModel" [(ngModel)]="User.email" required></ion-input>
+            </ion-chip>
+            <br>
+            <ion-chip class="err">
+                <ion-text *ngIf="email.invalid&&n.touched" color="danger">Ingrese um correo válido</ion-text>
+            </ion-chip>
         </div>
+
         <div>
-            <ion-label>Contraseña</ion-label>
-            <ion-input name="pass1" #pass1="ngModel" [(ngModel)]="User.password" type="password" required></ion-input>
-            <ion-text *ngIf="pass1.invalid&&pass1.touched" color="danger">Ingrese una contraseña</ion-text>
+            <ion-chip>
+                <ion-input placeholder="Contraseña" required=true clearInput="true" type="password" name="pass1" #pass1="ngModel" [(ngModel)]="User.password" required></ion-input>
+            </ion-chip>
+            <br>
+            <ion-chip class="err">
+                <ion-text *ngIf="pass1.invalid&&pass1.touched" color="danger">Ingrese una contraseña</ion-text>
+            </ion-chip>
         </div>
+
         <div>
-            <ion-label>Confirme contraseña</ion-label>
-            <ion-input name="pass2" #pass2="ngModel" type="password" [(ngModel)]="passito" required></ion-input>
-            <ion-text *ngIf="pass2.invalid&&pass2.touched" color="danger">Confirme contraseña</ion-text>
+            <ion-chip>
+                <ion-input placeholder="Confirme Contraseña" required=true clearInput="true" type="password" name="pass2" #pass2="ngModel" [(ngModel)]="passito" required></ion-input>
+            </ion-chip>
+            <br>
+            <ion-chip class="err">
+
+                <ion-text *ngIf="pass2.invalid&&pass2.touched" color="danger">Confirme su contraseña</ion-text>
+                <ion-text *ngIf="pass1.value!=pass2.value&&pass1.value!=null&&pass2.value!=null" color="warning">Las contraseñas no coinciden</ion-text>
+            </ion-chip>
         </div>
-        <ion-text *ngIf="pass1.value!=pass2.value" color="warning">Las contraseñas no coinciden</ion-text>
-        <div>
-            <ion-button type="submit" [disabled]="myForm.invalid">Registrarse</ion-button>
+
+        
+        
+        
+        <div class="btn-log">
+            <ion-button class="btn-log" type="submit" [disabled]="myForm.invalid" shape="round" size="large">Registrarse</ion-button>
         </div>
     </form>
 

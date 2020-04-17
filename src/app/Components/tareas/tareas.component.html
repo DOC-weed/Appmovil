@@ -16,6 +16,9 @@
                     <ion-text>Agregue un nombre</ion-text>
                 </div>
             </ion-item>
+            <div *ngIf="nombre.invalid&&nombre.touched">
+                <ion-text>Agregue un nombre</ion-text>
+            </div>
             <ion-item>
                 <ion-label>Descripción</ion-label>
                 <ion-textarea name="descriptionHomework" #des="ngModel" [(ngModel)]="homework.descricionTarea" required></ion-textarea>
@@ -23,15 +26,18 @@
                     <ion-text>Agregue una descripción</ion-text>
                 </div>
             </ion-item>
+            <div *ngIf="des.invalid&&des.touched">
+                <ion-text>Agregue una descripción</ion-text>
+            </div>
             <ion-item>
                 <ion-label>Archivo *opcional*</ion-label>
                 <ion-input name="fileName" #fileName="ngModel" [(ngModel)]="homework.fileName" type="file"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-button type="submit" [disabled]="!myForm.valid" shape="round">
+                <ion-button type="submit" [disabled]="!myForm.valid" shape="round" expand="full">
                     Registar tarea
                 </ion-button>
-                <ion-button (click)="closeModal()" shape="round">
+                <ion-button (click)="closeModal()" color="danger" shape="round" expand="full">
                     Cancelar
                 </ion-button>
             </ion-item>

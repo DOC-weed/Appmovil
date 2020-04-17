@@ -1,3 +1,4 @@
+// Importaciones que se necesitan para este modulo
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { userlogin } from '../../models/userLogin';
@@ -14,7 +15,9 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  //Variables utilizadas para este modulo========================
 user = new userlogin();
+  //=============================================================
   constructor(private service: ServiceService, public route: Router, public nav: NavController, public alert: AlertController) { }
 
   ngOnInit() {
@@ -30,7 +33,7 @@ user = new userlogin();
           console.log('contraseña incorrecta');
 
       }else{
-        
+
         localStorage.setItem('token', usuario.token);
         this.nav.navigateForward('/tabs');
 
@@ -40,12 +43,13 @@ user = new userlogin();
       this.error(err);
     });
   }
+  //Navegacion al modulo de registro de usuario
   gotregistrar() {
     this.nav.navigateForward('/registrar');
   }
-  //Alertas
+  //Alertas =======================================================
 
-  async error(err) {
+  async error(err) {// Alerta de error
     const alert = await this.alert.create({
       message:'Ocurrio un error' + err,
       buttons: [{
