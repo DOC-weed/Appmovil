@@ -1,14 +1,56 @@
 .centrado {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.ctnt-centrado{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;   
 }
 
 .label {
-    font-size: 25px;
-    padding-top: 15px;
+    font-size: 30px;
+    padding-top: 5px;
 }
 
-.input {
-    border-radius: 25%;
+ion-content.background{
+    --background: url('../../../assets/image/bg-img1.jpg') 0 0/100% 100% no-repeat;
+}
+
+ion-img{
+    padding: 3px;
+}
+
+div.img{
+    align-items: center;
+    margin: 15% 10% 1% 10%;
+    border: 2px solid;
+    border-color:white;
+    border-radius:10px;
+    background-color: white;
+}
+
+.welcome{
+    font-size: 35px;
+}
+
+ion-chip{
+    --background: white;
+    --color: black;
+    opacity: 0.8; 
+}
+
+ion-chip.err{
+    --background:none;
+    
+}
+
+ion-button{
+    --background:#2D9583;
+    padding-top: 20px;
+}
+iont-text{
+    text-align: center;
 }

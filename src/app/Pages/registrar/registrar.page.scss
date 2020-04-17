@@ -1,0 +1,34 @@
+ion-content.background{
+    --background: url('../../../assets/image/bg-img1.jpg') 0 0/100% 100% no-repeat;
+}
+
+ion-toolbar{
+    --background: #1D5F54;
+}
+
+.btn-log{
+    text-align: center;
+}
+ion-button.btn-log{
+    --background:#2D9583;
+}
+
+ion-buttons.btn-back{
+    --background:#1D5F54;
+}
+
+ion-chip{
+    --background: white;
+    --color: black;
+    opacity: 0.8; 
+}
+
+ion-chip.err{
+    --background:none;
+}
+
+.ctnt-centrado{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+}

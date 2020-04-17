@@ -1,40 +1,43 @@
-<ion-content>
+<ion-content class="background">
 
-    <div>
-        <ion-img></ion-img>
+    <div class="img">
+        <ion-img src='../../../assets/img/Teachland.PNG'></ion-img>
     </div>
     <div class="centrado">
-        <ion-label class="label">BIENVENIDO</ion-label>
+        <ion-label class="label welcome">BIENVENIDO</ion-label>
     </div>
-    <div class="centrado">
+    <div class="ctnt-centrado">
         <form #myForm="ngForm" (ngSubmit)="iniciarSesion(myForm)">
             <div>
                 <ion-label>Matrícula</ion-label>
-                <ion-input type="number" minlength="6" #matri="ngModel" maxlength="6" [(ngModel)]="user.numMatricula" name="matricula" required></ion-input>
-                <ion-text *ngIf="matri.invalid&&matri.touched" color="danger">
-                    Ingrese una matrícula
-                </ion-text>
+                <br>
+                <ion-chip>
+                    <ion-input class="input" type="number" required=true clearOnEdit="true" minlength="6" #matri="ngModel" maxlength="6" [(ngModel)]="user.numMatricula" name="matricula" required>
+                        <ion-label *ngIf="matri.invalid&&matri.touched" color="danger">Ingrese una matrícula</ion-label>
+                    </ion-input>
+                </ion-chip>
             </div>
+            <br>
             <div>
                 <ion-label>Contraseña</ion-label>
-                <ion-input type="password" #pass="ngModel" [(ngModel)]="user.strPassword" maxlength="8" minlength="8" name="password" required></ion-input>
-                <ion-text *ngIf="pass.invalid&&pass.touched" color="danger">
-                    Ingrese una contraseña
-                </ion-text>
+                <br>
+                <ion-chip>
+                    <ion-input class="input" type="password" required=true  clearOnEdit=true #pass="ngModel" [(ngModel)]="user.strPassword" maxlength="8" minlength="8" name="password" required>
+                        <ion-label *ngIf="pass.invalid&&pass.touched" color="danger" >Ingrese una contraseña</ion-label>
+                    </ion-input>
+                </ion-chip>
             </div>
-
             <div>
-                <ion-button [disabled]="myForm.invalid" type="submit" shape="round">
+                <ion-button [disabled]="myForm.invalid" type="submit" shape="round" size="large">
                     Iniciar sesion
                 </ion-button>
-
             </div>
         </form>
 
     </div>
 
-    <div class="centrado">
-        <p>¿Aun no te has registrado?<a (click)="gotregistrar()">Registrate</a></p>
+    <div class="ctnt-centrado">
+        <p>¿Aun no te has registrado? <a (click)="gotregistrar()">Registrate</a></p>
     </div>
 
 
