@@ -16,9 +16,10 @@ import { ComponentModule } from './Components/component.module';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { CursosComponent } from './Components/cursos/cursos.component';
 @NgModule({
-  declarations: [AppComponent, TareasComponent],
-  entryComponents: [TareasComponent],
+  declarations: [AppComponent, TareasComponent, CursosComponent],
+  entryComponents: [TareasComponent, CursosComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, HttpClientModule, ComponentModule ],
   providers: [
     StatusBar,

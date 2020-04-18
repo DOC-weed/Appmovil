@@ -12,20 +12,25 @@
                 <ion-label>Matrícula</ion-label>
                 <br>
                 <ion-chip>
-                    <ion-input class="input" type="number" required=true clearOnEdit="true" minlength="6" #matri="ngModel" maxlength="6" [(ngModel)]="user.numMatricula" name="matricula" required>
-                        <ion-label *ngIf="matri.invalid&&matri.touched" color="danger">Ingrese una matrícula</ion-label>
+                    <ion-input class="input" type="text" maxlength="6" pattern="\d*" clearOnEdit="true" #matri="ngModel" [(ngModel)]="user.numMatricula" name="matricula" required>
                     </ion-input>
                 </ion-chip>
+            </div>
+            <div *ngIf="matri.invalid&&matri.touched">
+                <ion-label color="danger">Ingrese una matrícula</ion-label>
             </div>
             <br>
             <div>
                 <ion-label>Contraseña</ion-label>
                 <br>
                 <ion-chip>
-                    <ion-input class="input" type="password" required=true  clearOnEdit=true #pass="ngModel" [(ngModel)]="user.strPassword" maxlength="8" minlength="8" name="password" required>
-                        <ion-label *ngIf="pass.invalid&&pass.touched" color="danger" >Ingrese una contraseña</ion-label>
+                    <ion-input class="input" type="password" clearOnEdit="true" #pass="ngModel" [(ngModel)]="user.strPassword" maxlength="8" minlength="8" name="password" required>
                     </ion-input>
                 </ion-chip>
+
+            </div>
+            <div *ngIf="pass.invalid&&pass.touched">
+                <ion-label color="danger">Ingrese una contraseña</ion-label>
             </div>
             <div>
                 <ion-button [disabled]="myForm.invalid" type="submit" shape="round" size="large">

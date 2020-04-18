@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { CursosComponent } from '../Components/cursos/cursos.component';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(public modalctrl: ModalController) {}
+
+  async opencursos() {
+    const modal = await this.modalctrl.create({
+      component: CursosComponent
+    });
+    return await modal.present();
+
+  }
+  dejarcurso() {
+    
+  }
 
 }

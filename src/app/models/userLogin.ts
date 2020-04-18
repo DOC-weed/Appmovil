@@ -1,4 +1,4 @@
 export class userlogin {
-    numMatricula: number;
+    numMatricula: string;
     strPassword: string;
 }

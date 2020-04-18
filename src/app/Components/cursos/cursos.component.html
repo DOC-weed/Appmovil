@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismiss()" color="danger">
+                <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Cursos</ion-title>
+    </ion-toolbar>
+    <ion-searchbar placeholder="Buscar"></ion-searchbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Nombre del curso</ion-card-subtitle>
+            <ion-card-title>Quie lo imparte</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            Datos del curso
+        </ion-card-content>
+        <ion-item>
+            <ion-button (click)="registarme()" expand="full">
+                Registrarme
+            </ion-button>
+        </ion-item>
+    </ion-card>
+
+</ion-content>
