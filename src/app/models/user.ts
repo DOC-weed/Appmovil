@@ -4,4 +4,5 @@ export class user {
     email: string;
     password: string;
     matricula: string;
+    rol = 'student';
 }

@@ -26,7 +26,7 @@ export class TareasComponent implements OnInit {
 
 
     this.service.postHomework(myform.value)
-    .subscribe(res =>{
+    .then(res =>{
       console.log(res);
       if (res) {
         this.closeModal();

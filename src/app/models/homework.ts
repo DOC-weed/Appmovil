@@ -1,5 +1,5 @@
 export class homework {
-    idCourse: string;
+    idCourse: any;
     nombreTarea: string;
     descricionTarea: string;
     file: any;

@@ -7,6 +7,7 @@ import { ModalController, AlertController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
 import { HomeworkPage } from '../Pages/perfil/homework.page';
 import { TareasComponent } from '../Components/tareas/tareas.component';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 
 
@@ -20,10 +21,17 @@ export class Tab1Page implements OnInit {
   course = new Course();
   blnmostarcurso = false;
   getCursos: Array<any>;
+  datosp: any;
   // =============================================================
-  constructor(private service: ServiceService, public modalCtrl: ModalController, public alert: AlertController) {}
+  constructor(private service: ServiceService, public modalCtrl: ModalController,
+              public alert: AlertController, private  storage: NativeStorage) {}
 
   ngOnInit() {
+    this.storage.getItem('token').then((usuario: any) =>{
+      this.datosp= usuario;
+      console.log(this.datosp);
+    });
+
 
   }
 // mostrar y ocultar formulario
@@ -39,21 +47,20 @@ export class Tab1Page implements OnInit {
     // Aqui tienes que mandar id y remplazar el string por la variable de la función
     const _id = '5e9902eba956254b0059e545';
     this.service.GetCourseId(_id)
-    .subscribe(res => {
+    .then(res => {
       console.log(res);
     });
   }
   registarCurso(myform: NgForm) {
-
-    // tslint:disable-next-line:max-line-length
-    const form = {nameCourse:myform.value.nombre,topicCourse:myform.value.tema,descriptionCourse:myform.value.des,days:myform.value.days,date:myform.value.date,hour:myform.value.hour,place:myform.value.place}
-    console.log(form);
-    this.service.postCourse(form)
-    .subscribe(res => {
+    // this.course.idUser = ;
+    this.service.postCourse(this.course).then(res => {
       console.log(res);
       myform.reset();
       this.blnmostarcurso = false;
       this.succes();
+    }).catch(err => {
+      console.log(err);
+      this.error();
     });
   }
 
@@ -72,9 +79,9 @@ export class Tab1Page implements OnInit {
     });
     return await alert.present();
   }
-  async error(err) {
+  async error() {
     const alert = await this.alert.create({
-      message:'Ocurrio un error' + err,
+      message:'Ocurrio un error',
       buttons: [{text: 'ok'}]
     });
     return await alert.present();

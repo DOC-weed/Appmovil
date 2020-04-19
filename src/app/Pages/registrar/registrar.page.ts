@@ -22,11 +22,9 @@ passito: string;
   //Función de registar los nuevos datos y guardarlos en un usuario
   registrar(myForm: NgForm) {
     const roldef = "student";
-    const form = {name: myForm.value.nombre,lastname:myForm.value.apeliido,email:myForm.value.email,password:myForm.value.pass1,matricula:myForm.value.matri,rol:roldef}
-    console.log(form);
     //console.log(myForm.value);
-    this.service.postUser(form)
-      .subscribe(res => {
+    this.service.postUser(this.User)
+      .then(res => {
         console.log(res);
       });
   }

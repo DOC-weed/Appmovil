@@ -1,5 +1,5 @@
 export class Course {
-    // idUser: string;
+    idUser: any;
     // idUserRegister: Array<string>;
     nameCourse: string;
     topicCourse: string;
@@ -8,4 +8,5 @@ export class Course {
     date: Date;
     hour: string;
     place: string;
+    Message: string;
 }

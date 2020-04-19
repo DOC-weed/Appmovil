@@ -30,7 +30,7 @@ export class ServiceService {
       return this.http.get(this.urlUsers + '/').toPromise();
   }
 
-  getUserId(_id:any){
+  getUserId(_id: any){
     return this.http.get(this.urlUsers + `/${_id}`).toPromise();
   }
 
@@ -38,7 +38,7 @@ export class ServiceService {
   updateUser(_id:any,User: user){
     return this.http.post(this.urlUsers +  `/${_id}`,User).toPromise();
   }
-  updateUser(_id:any,img:string){
+  updateImg(_id:any,img:string){
     return this.http.post(this.urlUsers + `/${_id}/${img}`).toPromise();
   }
 
