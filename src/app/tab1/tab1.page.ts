@@ -38,23 +38,35 @@ export class Tab1Page implements OnInit {
   obtenercursosId() {
     // Aqui tienes que mandar id y remplazar el string por la variable de la función
     const _id = '5e9902eba956254b0059e545';
-    this.service.GetCourseId(_id)
-    .subscribe(res => {
-      console.log(res);
-    });
+    this.service.GetCourseId(_id).then((course:any) => {
+      console.log(course);
+
+    }).catch((err) =>{
+      console.log(err);
+
+    })
+
   }
   registarCurso(myform: NgForm) {
 
     // tslint:disable-next-line:max-line-length
     const form = {nameCourse:myform.value.nombre,topicCourse:myform.value.tema,descriptionCourse:myform.value.des,days:myform.value.days,date:myform.value.date,hour:myform.value.hour,place:myform.value.place}
     console.log(form);
-    this.service.postCourse(form)
-    .subscribe(res => {
-      console.log(res);
+    this.service.postCourse(form).then((course:any)=>{
+      console.log(course);
       myform.reset();
       this.blnmostarcurso = false;
       this.succes();
+    }).catch((err)=>{
+      console.log(err);
+
     });
+
+
+
+
+
+
   }
 
 

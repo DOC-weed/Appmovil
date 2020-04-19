@@ -17,7 +17,7 @@ export class TareasComponent implements OnInit {
   constructor(private service: ServiceService, public modalCtrl: ModalController) { }
 
   ngOnInit() {}
-  // Función de registrar un tarea nueva 
+  // Función de registrar un tarea nueva
   registarTarea(myform: NgForm) {
 
     if (myform.value.fileName == null) {
@@ -25,19 +25,20 @@ export class TareasComponent implements OnInit {
     }
 
 
-    this.service.postHomework(myform.value)
-    .subscribe(res =>{
-      console.log(res);
-      if (res) {
+    this.service.postHomework(myform.value).then((hw:any)=>{
+      console.log(hw);
+      if (hw) {
         this.closeModal();
       }
-    });
+    }).catch((err)=>{
+      console.log(err);
 
-
-
+    })
 
 
   }
+
+
   closeModal() {
     this.modalCtrl.dismiss();
   }

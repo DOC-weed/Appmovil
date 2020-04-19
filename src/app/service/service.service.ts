@@ -35,12 +35,12 @@ export class ServiceService {
   }
 
 
-  updateUser(_id:any,User: user){
-    return this.http.post(this.urlUsers +  `/${_id}`,User).toPromise();
-  }
-  updateUser(_id:any,img:string){
-    return this.http.post(this.urlUsers + `/${_id}/${img}`).toPromise();
-  }
+  // updateUser(_id:any,User: user){
+  //   return this.http.post(this.urlUsers +  `/${_id}`,User).toPromise();
+  // }
+  // updateUserImage(_id:any,img:string){
+  //   return this.http.post(this.urlUsers + `/${_id}/${img}`).toPromise();
+  // }
 
 //crear cursos
   postCourse(Courseinfo: Course){
@@ -60,13 +60,13 @@ export class ServiceService {
     return this.http.get(this.urlCourses ).toPromise();
   }
 
-  updateCourse(_id:any,Courseinfo:Course){
-    return this.http.put(this.urlCourses + `/${_id}`,Courseinfo).toPromise();
-  }
+  // updateCourse(_id:any,Courseinfo:Course){
+  //   return this.http.put(this.urlCourses + `/${_id}`,Courseinfo).toPromise();
+  // }
 
-  updateCourseMsg(_id:any,msg:string){
-    return this.http.put(this.urlCourses + `/${_id}/${msg}`).toPromise();
-  }
+  // updateCourseMsg(_id:any,msg:string){
+  //   return this.http.put(this.urlCourses + `/${_id}/${msg}`).toPromise();
+  // }
 
   //crear homework
   postHomework(Homework: homework){

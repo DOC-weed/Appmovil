@@ -25,10 +25,15 @@ passito: string;
     const form = {name: myForm.value.nombre,lastname:myForm.value.apeliido,email:myForm.value.email,password:myForm.value.pass1,matricula:myForm.value.matri,rol:roldef}
     console.log(form);
     //console.log(myForm.value);
-    this.service.postUser(form)
-      .subscribe(res => {
-        console.log(res);
-      });
+    this.service.postUser(form).then((reg:any)=>{
+      console.log(reg);
+    }).catch((err)=>{
+      console.log(err);
+
+    });
+
+
+      
   }
 
   // Alertas
