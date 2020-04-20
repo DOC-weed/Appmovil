@@ -19,14 +19,30 @@
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <ion-card>
+        <div>
+            <ion-button expand="full" shape="round" (click)="revmensaje()">Revisar mensajes</ion-button>
+            <ion-button expand="full" shape="round" (click)="revtareas()">Revisar Tareas</ion-button>
+        </div>
+        <div *ngIf="mostrar==true">
+             <ion-card>
             <ion-card-header>
                 <ion-card-title>Nombre del curso</ion-card-title>
             </ion-card-header>
             <ion-card-content>
                 <ion-label>Mensajse del curso</ion-label>
             </ion-card-content>
-
         </ion-card>
+        </div>
+        <div *ngIf="mostar==false">
+             <ion-card>
+            <ion-card-header>
+                <ion-card-title>Nombre del curso</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-label>tarea del curso</ion-label>
+            </ion-card-content>
+        </ion-card>
+        </div>
+       
     </ion-content>
 </div>

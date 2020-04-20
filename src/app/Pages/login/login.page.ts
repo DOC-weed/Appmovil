@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { NavController, AlertController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import * as jwt_decode from 'jwt-decode';
 
 
 
@@ -36,6 +37,9 @@ user = new userlogin();
           const err = 'contraseña incorrecta';
           this.error(err);
       }else{
+        console.log(usuario.token);
+        const token = jwt_decode(usuario.token);
+        console.log(token);
         this.storage.setItem('token', usuario.token).then((res)=>{
           this.nav.navigateForward('/tabs');
           console.log(usuario.token);

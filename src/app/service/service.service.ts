@@ -33,18 +33,24 @@ export class ServiceService {
   getUserId(_id: any){
     return this.http.get(this.urlUsers + `/${_id}`).toPromise();
   }
-
+  
+  registerCourse(_id: any, array: Array<any>){
+    return this.http.get(this.urlUsers + `/register/${_id}/${array}`).toPromise();
+  }
 
   updateUser(_id:any,User: user){
-    return this.http.post(this.urlUsers +  `/${_id}`,User).toPromise();
+    return this.http.put(this.urlUsers +  `/${_id}`,User).toPromise();
   }
-  updateImg(_id:any,img:string){
-    return this.http.post(this.urlUsers + `/${_id}/${img}`).toPromise();
+  updateUserImage(_id:any,User: user){
+    return this.http.put(this.urlUsers + `/imagen/${_id}`,User).toPromise();
   }
 
 //crear cursos
   postCourse(Courseinfo: Course){
-    return this.http.post(this.urlCourses , Courseinfo).toPromise();
+    return this.http.post(this.urlCourses,Courseinfo).toPromise();
+  }
+  getresgistrados(array: Array<any>){
+    return this.http.get(this.urlCourses + `/registrados/${array}`).toPromise();
   }
 
 //Obtener curso por id
@@ -64,14 +70,12 @@ export class ServiceService {
     return this.http.put(this.urlCourses + `/${_id}`,Courseinfo).toPromise();
   }
 
-  updateCourseMsg(_id:any,msg:string){
-    return this.http.put(this.urlCourses + `/${_id}/${msg}`).toPromise();
+  updateCourseMsg(_id:any, msg:string){
+    return this.http.get(this.urlCourses + `/mensaje/${_id}/${msg}`).toPromise();
   }
 
   //crear homework
   postHomework(Homework: homework){
-    console.log(Homework);
-
     return this.http.post(this.urlHomeworks , Homework).toPromise();
 
   }

@@ -20,13 +20,11 @@
     </ion-header>
     <ion-content>
         <div>
-            <ion-button (click)="opencursos()" expand="full">
+            <ion-button (click)="opencursos()" shape="round" expand="full">
                 Unirme aun curso
             </ion-button>
         </div>
-        <div>
-            No eres parte de un curso aun
-        </div>
+        
         <div>
             <ion-card>
                 <ion-card-header>
@@ -34,13 +32,16 @@
                 </ion-card-header>
                 <ion-card-content>
                     <div>
-                        <ion-button (click)="dejarcurso()" expand="full">
+                        <ion-button (click)="obtenermiscursos()" color="danger" shape="round" expand="full">
                             Abandonar curso
                         </ion-button>
                     </div>
                 </ion-card-content>
             </ion-card>
         </div>
+        <ng-template>
+            <h2>No tienes cursos ¡Únete a uno!</h2>
+        </ng-template>
 
 
     </ion-content>

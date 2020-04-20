@@ -26,6 +26,9 @@ passito: string;
     this.service.postUser(this.User)
       .then(res => {
         console.log(res);
+        this.volverLogin();
+      }).catch(err => {
+        this.error();
       });
   }
 
@@ -42,9 +45,9 @@ passito: string;
           });
     return await alert.present();
   }
-  async error(err) { //Alerta de error
+  async error() { //Alerta de error
     const alert = await this.alert.create({
-      message:'Ocurrio un error' + err,
+      message:'Ocurrio un error',
       buttons: [{
         text:'ok'
       }]
