@@ -1,0 +1,52 @@
+<ion-content class="background">
+
+    <div class="img">
+        <ion-img src='../../../assets/image/Teachland.PNG'></ion-img>
+    </div>
+    <div class="centrado">
+        <ion-label class="label welcome">BIENVENIDO</ion-label>
+    </div>
+    <div class="ctnt-centrado">
+        <form #myForm="ngForm" (ngSubmit)="iniciarSesion(myForm)">
+            <div>
+                <ion-label>Matrícula</ion-label>
+                <br>
+                <ion-chip>
+                    <ion-input class="input" type="text" maxlength="6" pattern="\d*" clearOnEdit="true" #matri="ngModel" [(ngModel)]="user.numMatricula" name="matricula" required>
+                    </ion-input>
+                </ion-chip>
+            </div>
+            <div *ngIf="matri.invalid&&matri.touched">
+                <ion-label color="danger">Ingrese una matrícula</ion-label>
+            </div>
+            <br>
+            <div>
+                <ion-label>Contraseña</ion-label>
+                <br>
+                <ion-chip>
+                    <ion-input class="input" type="password" clearOnEdit="true" #pass="ngModel" [(ngModel)]="user.strPassword" maxlength="8" minlength="8" name="password" required>
+                    </ion-input>
+                </ion-chip>
+
+            </div>
+            <div *ngIf="pass.invalid&&pass.touched">
+                <ion-label color="danger">Ingrese una contraseña</ion-label>
+            </div>
+            <div>
+                <ion-button [disabled]="myForm.invalid" type="submit" shape="round" size="large">
+                    Iniciar sesion
+                </ion-button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="ctnt-centrado">
+        <p>¿Aun no te has registrado? <a (click)="gotregistrar()">Registrate</a></p>
+    </div>
+    <p>camara <a (click)="gotcamera()">Registrate</a></p>
+    
+    <p>tabs <a (click)="gotc()">Registrate</a></p>
+
+
+</ion-content>

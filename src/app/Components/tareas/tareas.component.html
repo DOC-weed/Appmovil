@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Registar Tarea</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div>
+        <form #myForm="ngForm" (ngSubmit)="registarTarea(myForm)">
+            <ion-item>
+                <ion-label position="floating">Nombre de la tarea</ion-label>
+                <ion-input type="text" name="nameHomework" #nombre="ngModel" [(ngModel)]="homework.nameHomework" required></ion-input>
+            </ion-item>
+            <ion-item *ngIf="nombre.invalid&&nombre.touched" color="danger" >
+                <ion-text>Agregue un nombre</ion-text>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Descripción</ion-label>
+                <ion-textarea name="descriptionHomework" #des="ngModel" [(ngModel)]="homework.descriptionHomework" required></ion-textarea>
+            </ion-item>
+            <ion-item *ngIf="des.invalid&&des.touched" color="danger">
+                <ion-text >Agregue una descripción</ion-text>
+            </ion-item>
+            <ion-item>
+                <ion-label>Archivo *opcional*</ion-label>
+                <ion-input name="fileName" #fileName="ngModel" [(ngModel)]="homework.fileName" type="file"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-button type="submit" (click)="registarTarea()" [disabled]="!myForm.valid" shape="round" expand="full">
+                    Registar tarea
+                </ion-button>
+                <ion-button (click)="closeModal()" color="danger" shape="round" expand="full">
+                    Cancelar
+                </ion-button>
+            </ion-item>
+        </form>
+    </div>
+</ion-content>

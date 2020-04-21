@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-buttons slot="start">
+        <ion-back-button href="/" ></ion-back-button>
+    </ion-buttons>
+    <ion-toolbar>
+        <ion-title>Perfil</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="ion-text-center">
+       <img src={{image}} alt="" class="img">
+    </div>
+
+    <div *ngIf="mostrar===false"> 
+
+        <ion-item>
+        <ion-button (click)="tomarFoto()">
+            <ion-icon slot="end" name="camera"></ion-icon>
+            camera
+        </ion-button>
+    </ion-item>
+
+    <div>
+        <form #myForm="ngForm" (ngSubmit)="actualizarPerfil(myForm)">
+            <div>
+                <ion-label>Nombres</ion-label>
+                <ion-input type="text" name="nombre" #n="ngModel" [(ngModel)]="usuario2.name" required></ion-input>
+                <ion-text *ngIf="n.invalid&&n.touched" color="danger">Ingrese un nombre</ion-text>
+            </div>
+            <div>
+                <ion-label>Apellidos</ion-label>
+                <ion-input type="text" name="apeliido" #ape="ngModel" [(ngModel)]="usuario2.lastname" required></ion-input>
+                <ion-text *ngIf="ape.invalid&&ape.touched" color="danger">Ingrese apellidos </ion-text>
+            </div>
+            <div>
+                <ion-label>Correo</ion-label>
+                <ion-input type="email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" name="email" #email="ngModel" [(ngModel)]="usuario2.email"  required></ion-input>
+                <ion-text *ngIf="email.invalid&&email.touched" color="danger">Ingrese un correo valido</ion-text>
+            </div>
+            <div>
+                <ion-button type="submit" expand="full" [disabled]="myForm.invalid" shape="round">Actualizar</ion-button>
+            </div>
+        </form>
+    </div>
+        
+    </div>
+
+    <div>
+    <ion-button expand="full" (click)="getusuarioid()" shape="round">Editar datos</ion-button></div>
+   
+
+
+</ion-content>

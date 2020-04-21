@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="dismiss()" color="danger">
+                <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Cursos</ion-title>
+    </ion-toolbar>
+    <ion-searchbar placeholder="Buscar"></ion-searchbar>
+</ion-header>
+<ion-content>
+
+    <ion-card *ngFor="let item of cursos">
+        <ion-card-header>
+            <ion-card-subtitle>{{item.nameCourse}}}</ion-card-subtitle>
+            <ion-card-title>{{item.topicCourse}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div>
+                <ion-label>{{item.descriptionCourse}}</ion-label>
+            </div>
+            <div>
+                <p>{{item.days}}</p>
+
+                <ion-label>{{item.date| date}}</ion-label>
+            </div>
+        </ion-card-content>
+        <ion-item>
+            <ion-button (click)="registarme(item._id)" expand="full">
+                Registrarme
+            </ion-button>
+        </ion-item>
+    </ion-card>
+
+
+</ion-content>
